@@ -15,6 +15,14 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
+        spaceId: `cqir2knotq3z`,
+        accessToken: `WPh-qqDF-yURj8yY9f8_vqDsnWkqhqdtMNAWnlj6Ofk`
+      },
+    },
+    `gatsby=plugin-image`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      option: {
         name: `images`,
         path: `${__dirname}/src/images`,
       },
