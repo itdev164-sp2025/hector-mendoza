@@ -1,3 +1,10 @@
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`
+})
+
+/**
+ * @type {import('gatsby'),GatsbyConfig}
+ */
 module.exports = {
   siteMetadata: {
     title: `Gatsby Blog`,
@@ -11,15 +18,15 @@ module.exports = {
     }
   },
   plugins: [
-    `gatsby-plugin-image`,
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: `gatsby-source-contentful`,
       options: {
-        spaceId: `cqir2knotq3z`,
-        accessToken: `WPh-qqDF-yURj8yY9f8_vqDsnWkqhqdtMNAWnlj6Ofk`
+        spaceId: `${process.env.SPACE_ID}`,
+        accessToken: `${process.env.ACCESS_TOKEN}`
       },
     },
-    `gatsby=plugin-image`,
+    `gatsby-plugin-image`,
+    `gatsby-plugin-styles-components`,
     {
       resolve: `gatsby-source-filesystem`,
       option: {
@@ -27,6 +34,7 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    `gatsby-transformer-remark`
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
