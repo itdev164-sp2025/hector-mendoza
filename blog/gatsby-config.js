@@ -26,7 +26,7 @@ module.exports = {
       },
     },
     `gatsby-plugin-image`,
-    `gatsby-plugin-styles-components`,
+    `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-source-filesystem`,
       option: {
