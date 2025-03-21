@@ -7,7 +7,7 @@ require('dotenv').config({
  */
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Blog`,
+    title: `My Blog`,
     description: `.`,
     author: `Hectoru`,
     siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
@@ -23,7 +23,7 @@ module.exports = {
       options: {
         spaceId: `${process.env.SPACE_ID}`,
         accessToken: `${process.env.ACCESS_TOKEN}`
-      },
+      }
     },
     `gatsby-plugin-image`,
     `gatsby-plugin-styled-components`,
