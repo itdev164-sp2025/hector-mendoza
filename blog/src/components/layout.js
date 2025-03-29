@@ -2,9 +2,9 @@ import * as React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import styled, { ThemeProvider } from "styled-components"
 
-import Header from "./header"
-import "./layout.css"
+import Header from "./Header"
 import { Gray } from "./themes/Gray"
+import "./latout.css"
 
 const Content = styled.div`
   margin: 0 auto;
