@@ -6,6 +6,9 @@ import Header from "./Header"
 import { Gray } from "./themes/Gray"
 import "./latout.css"
 
+import { Main } from './Main'
+import { Footer } from './Footer'
+
 const Content = styled.div`
   margin: 0 auto;
   max-width: vat(--size-content);
@@ -32,9 +35,14 @@ return (
   <ThemeProvider theme={Gray} >
     <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
     <Content>
-      <main>{Children}</main>
-      <Footer>
-        {new Date().getFullYear()} &middot; Built with
+      <Main>{Children}</Main>
+      <Footer
+        style={{
+          marginTops: `var(--space-5)`,
+          fontSize: `var(--font-sm)`,
+        }}
+      >
+        © {new Date().getFullYear()} &middot; Built with
         {` `}
         <a href="https://www.gatsbyjs.com">Gatsby</a>
       </Footer>
