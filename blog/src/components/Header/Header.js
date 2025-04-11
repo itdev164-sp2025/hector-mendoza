@@ -2,7 +2,9 @@ import * as React from "react"
 import PropTypes from "prop-types"
 import { Link } from "gatsby"
 import styled from 'styled-components'
+import { Search } from 'styled-icons/feather'
 import { H1 } from "../Heading"
+import { IconButton } from '../Section'
 import { Section } from '../Section'
 
 const StyledHeader = styled.header`
@@ -22,18 +24,18 @@ const StyledLink = styled(Link)`
 `
 
 const Header = ({ siteTitle }) => (
-    <StyledHeader>
+    <Outer>
         <Section width={11/12}>
+        <H1>
             <StyledLink to="/">
-                <H1>
-                    {siteTitle}
-                </H1>
+                {siteTitle}
             </StyledLink>
+        </H1>
         </Section>
         <Section width={1/12}>
-            Search
+            <IconButton icon={<Search />} />
         </Section>
-    </StyledHeader>
+    </Outer>
 )
 
 export {Header}
