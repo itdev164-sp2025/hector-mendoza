@@ -1,3 +1,15 @@
+import React from 'react'
+import mainHeaderImage from './images/react.png'
+import { Search } from 'styled-icons/feather'
+
+const images = {
+    mainHeaderImage
+}
+
+const icons = {
+    Search: <Search />
+}
+
 const theme = {
     space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
     colors: {
@@ -12,7 +24,7 @@ const theme = {
             7: 'hsl(208, 13%, 35%)',
             8: 'hsl(208, 13%, 25%)',
             9: 'hsl(208, 13%, 15%)',
-            10: 'hsl(208, 13%, 5%)',
+            10:'hsl(208, 13%, 5%)',
         }
     }
 }
@@ -34,5 +46,5 @@ const variants = {
     }
 }
 
-export const Gray = { ...theme, variants }
+export const Gray = { ...theme, variants, images, icons }
 

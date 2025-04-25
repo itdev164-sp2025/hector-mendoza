@@ -1,8 +1,8 @@
 import * as React from "react"
 import PropTypes from "prop-types"
 import { Link } from "gatsby"
-import styled from 'styled-components'
-import { Search } from 'styled-icons/feather'
+import styled, { ThemeConsumer} from 'styled-components'
+import { Flex } from 'rebass'
 import { H1 } from "../Heading"
 import { IconButton } from '../Section'
 import { Section } from '../Section'
@@ -13,29 +13,60 @@ const StyledHeader = styled.header`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 50px;
-    background: ${props => props.theme.header.backgroundColor}
+    background: ${({ theme }) => theme.variants.header.primary.backgroundColor};
 `
 
 const StyledLink = styled(Link)`
-    font-size: var(--font-sm);
     text-decoration: none;
-    color: ${props => props.theme.header.color}
+    margin: 0 10px;
+    color: ${({ theme }) => theme.variants.header.primary.color};
+`
+const Image = styled.img`
+    margin: 0;
+`
+
+const Nav = styled(Flex)`
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+`
+
+const Title = styled(H1)`
+    flex: 4;
+`
+
+const MediaQuery = styled.div`
+    @media (max-width: 60px) {
+        display: none;
+    }
 `
 
 const Header = ({ siteTitle }) => (
-    <Outer>
-        <Section width={11/12}>
-        <H1>
-            <StyledLink to="/">
-                {siteTitle}
-            </StyledLink>
-        </H1>
+    <StyledHeader>
+        <Section flex>
+            <Section width={1/12}
+                flex flexDirection="column" justifyContent="center">
+            <ThemeConsumer>
+                {theme => <Image src={theme.images.mainHeaderImage} />}
+            </ThemeConsumer>
+            </Section>
+            <Section width={11/12}
+                flex flexDirection="column" justifyContent="center">
+                <Nav>
+                    <Title>
+                        <StyledLink to="/">
+                            {SiteTitle}
+                        </StyledLink>
+                    </Title>
+                    <MediaQuery>
+                        <StyledLink to="/">Home</StyledLink>
+                        <StyledLink to="/about">About</StyledLink>
+                        <StyledLink to="/contact">Contact</StyledLink>
+                    </MediaQuery>
+                </Nav>
+            </Section>
         </Section>
-        <Section width={1/12}>
-            <IconButton icon={<Search />} />
-        </Section>
-    </Outer>
+    </StyledHeader>
 )
 
 export {Header}
